@@ -75,13 +75,32 @@ WSGI_APPLICATION = 'payment_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'paystack_db_t3mn',  # Replace with your database name
+#         'USER': 'paystack_db_t3mn_user',        # Replace with your database username
+#         'PASSWORD': 'rMdSTgb6LpDy6SRgUoQN4DofRSQMYsAy',    # Replace with your database password
+#         'HOST': 'dpg-cv8prs0gph6c73aep3p0-a',  # Replace with your PostgreSQL host
+#         'PORT': '5432',                      # Leave empty for default
+#     }
+# }
+
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default='postgresql://paystack_db_t3mn_user:rMdSTgb6LpDy6SRgUoQN4DofRSQMYsAy@dpg-cv8prs0gph6c73aep3p0-a.oregon-postgres.render.com/paystack_db_t3mn'
+    )
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
