@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Section</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'initialize_payment' %}">
+        {% csrf_token %}
+        <label for="amount">Amount (in kobo):</label>
+        <input type="number" name="amount" required>
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>
